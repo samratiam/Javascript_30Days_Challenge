@@ -1,6 +1,7 @@
 ## Day 1 Javascript Challenge
 ### Variables in JavaScript
 - Variables can be assigned using **var, let and const**
+- **var** can be redeclared with **same name** 
 - The values initialized using var and let can be reassigned. But the values assigned using const cannot be re-assigned. It will throw error with error message  ` TypeError: Assignment to constant variable. `
 
 

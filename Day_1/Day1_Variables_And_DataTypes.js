@@ -41,8 +41,14 @@ console.log("Array result:",test8);
 let test9 = "First";
 console.log("Test 9 Initial: ",test9);
 
-test9 = "Second";
+lettest9 = "Second";
 console.log("Test 9 Final:",test9);
+
+
+//var can be redeclared again 
+var test11 = "Sample Var";
+var test11 = "Again Var";
+console.log("Var Output",test11); //both test 11 variable gets assigned "Again Var" value
 
 //const
 const test10 = "Sample 1";
