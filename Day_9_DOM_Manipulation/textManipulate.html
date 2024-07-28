@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body   id="bodyId">
+	<h2 id="top">This is bold text</h2>
+	<p id="hId">This is the first text</p>
+	<p id="pId">This is the paragraph</p>
+	<p class="yellowColor" id="yellowId">This is yellow paragraph</p>
+</body>
+<div id="box">
+	<p id="lastElem">This is last text</p>
+	<button  onclick="changeText()"  onmouseover="changeBorderColor()">Click Me!</button>
+	<br/>
+	<br/>
+</div>
+
+<br/>
+<img src= "https://picsum.photos/100" alt="test" width="300" >
+
+<style>
+	.blueColor{
+		color: blue;
+	}
+	.yellowColor{
+		color: yellow;
+	}
+	.borderColor{
+		border: 1px solid red;
+	}
+</style>
+
+<script>
+	//change content
+	document.getElementById("hId").innerText = "This is new text by ID.";
+
+	//change style
+	var bodyElement = document.getElementById("bodyId");
+	bodyElement.style.backgroundColor = "pink";
+
+	//create a html element
+	const divBox = document.createElement("div");
+	divBox.innerText = "Content within div";
+	document.body.appendChild(divBox);
+
+	// create a unordered list
+	var ulElement = document.createElement("ul");
+	ulElement.id = "listId";
+
+	for (let i = 0; i < 3; i++) {
+		var liElement = document.createElement("li");
+		liElement.innerText = `Item ${i+1}`;
+		ulElement.appendChild(liElement);
+	}
+	
+	document.body.appendChild(ulElement);
+
+	//remove a html element
+	var topElem = document.getElementById("top");
+	topElem.remove();
+
+	//Remove Item 3 created in above list
+	var listElements = document.getElementById("listId");
+	listElements.removeChild(listElements.lastChild);
+
+	//change attribute src
+	var imgElement = document.getElementsByTagName("img");
+	imgElement[0].src = "krishna.jpg";
+	
+	// change style
+	var lastElement = document.querySelector("#lastElem");
+	lastElement.style.color = "red";
+
+	//add blue color class
+	var paraId = document.getElementById("pId");
+	paraId.classList.add("blueColor");
+
+	//remove yellow color class
+	var yellowId = document.getElementById("yellowId");
+	yellowId.classList.remove("yellowColor");
+	
+	//change text on button click
+	function changeText()
+	{
+		var paragraphId = document.getElementById("lastElem");
+		paragraphId.innerText = "This is changed by button click.";
+	}
+
+	//change border color on mouseover on button
+	function changeBorderColor()
+	{
+		var divBox = document.getElementById("box");
+		divBox.classList.add("borderColor");
+	}
+
+</script>
+
+
+</html>
