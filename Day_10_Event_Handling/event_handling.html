@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h1 id="hId">This is heading</h1>
+	<button onclick="changeContent()">Click Me!</button>
+	<br>
+	<br>
+	
+	<div id="textBox" class="bgColor" onmouseover="changeBgColor('aqua')" onmouseout="resetBgColor()">
+		Change Color 
+	</div>
+	<br>
+	<select onchange="displaySelectedValue()"" id="selectList">
+		<option value="Hero Honda">Hero honda</option>
+		<option value="KTM">KTM</option>
+		<option value="FZ">FZ</option>
+		<option value="Duke">Duke</option>
+
+	</select>
+	<form onsubmit="displayInputText()">
+
+		Enter an input: <input type="text" onkeydown="displayText()" onkeyup="showText()" id="inputId" >
+		
+
+	</form>
+	
+	<p id="paraId"></p>
+	<p id="selectId"></p>
+
+	<br/>
+	<br/>
+	<img src="https://picsum.photos/100" alt="Image to Toggle" width="300" id="toggleImage" ondblclick="toggle()" class="visible">
+
+</body>
+
+<style>
+	.visible {
+		display: block;
+	}
+
+	.hidden {
+		display: none;
+	}
+
+	.bgColor{
+		border: 1px solid red;
+		background-color: rgb(129, 204, 145);
+	}
+	.newBgColor{
+		background-color: blue;
+	}
+	
+</style>
+
+<script>
+	function changeContent() {
+		var heading = document.getElementById("hId");
+		heading.innerText = "This is updated heading";
+	}
+
+	function toggle() {
+		var image = document.getElementById("toggleImage");
+		if (image.classList.contains('hidden')) {
+			console.log("Hidden");
+			image.classList.remove('hidden');
+			image.classList.add('visible');
+		}
+		else {
+			console.log("Visible");
+			image.classList.remove('visible');
+			image.classList.add('hidden');
+		}
+	}
+	function changeBgColor(color){
+		var textBox = document.getElementById("textBox");
+		textBox.style.background = color;
+	}
+	function resetBgColor()
+	{
+		var textBox1= document.getElementById("textBox");
+		textBox1.style.backgroundColor = '';
+	}
+
+	function displayText(){
+		var inputValue = document.getElementById("inputId").value;
+		console.log(inputValue)
+	}
+	function showText(){
+		var inputId = document.getElementById("inputId").value;
+		var paraId = document.getElementById("paraId");
+		paraId.innerText =inputId;
+	}
+	function displayInputText(){
+		var text = document.getElementById("inputId").value;
+		event.preventDefault();
+		console.log(text)
+	}
+	function displaySelectedValue() {
+		var selectedValue = document.getElementById("selectList").value;
+		document.getElementById("selectId").innerText = selectedValue;
+
+	}
+</script>
+
+</html>
